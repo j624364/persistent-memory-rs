@@ -8,14 +8,10 @@ fn get_app_name() -> &'static str {
 fn store_and_retrieve() {
     let test_message = "This is a test message.";
 
-    let persistent_data_config = PersistentData::new(
-        StorageDirectory::default(),
-        get_app_name(),
-        "store-and-retrieve",
-    );
+    let persistent_data = PersistentDataBuilder::new(get_app_name(), "store-and-retrieve").build();
 
-    persistent_data_config.store(&test_message).unwrap();
-    let read_message = persistent_data_config.retrieve::<String>().unwrap();
+    persistent_data.store(&test_message).unwrap();
+    let read_message = persistent_data.retrieve::<String>().unwrap();
 
     assert_eq!(test_message, &read_message);
 }
