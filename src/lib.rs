@@ -1,11 +1,13 @@
 use std::path::PathBuf;
 
+#[derive(Default)]
 pub enum StorageDirectory {
     Home,
     Cache,
     Config,
     ConfigLocal,
     Data,
+    #[default]
     DataLocal,
     Executable,
     Desktop,
