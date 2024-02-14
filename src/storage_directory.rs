@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-#[derive(Default)]
+#[derive(Clone, Copy, Default)]
 pub enum StorageDirectory {
     Home,
     Cache,
@@ -14,7 +14,7 @@ pub enum StorageDirectory {
 }
 
 impl StorageDirectory {
-    pub fn get_location(&self) -> Option<PathBuf> {
+    pub fn get_path(&self) -> PathBuf {
         match self {
             Self::Home => dirs::home_dir(),
             Self::Cache => dirs::cache_dir(),
@@ -25,5 +25,6 @@ impl StorageDirectory {
             Self::Executable => dirs::executable_dir(),
             Self::Desktop => dirs::desktop_dir(),
         }
+        .unwrap() // todo fix later
     }
 }
