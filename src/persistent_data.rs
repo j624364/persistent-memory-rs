@@ -18,11 +18,11 @@ fn get_file_path(
     path
 }
 
-pub struct PersistentDataConfig {
+pub struct PersistentData {
     file_path: PathBuf,
 }
 
-impl PersistentDataConfig {
+impl PersistentData {
     pub fn new(
         storage_directory: StorageDirectory,
         application_name: &str,

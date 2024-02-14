@@ -8,7 +8,7 @@ fn get_app_name() -> &'static str {
 fn store_and_retrieve() {
     let test_message = "This is a test message.";
 
-    let persistent_data_config = PersistentDataConfig::new(
+    let persistent_data_config = PersistentData::new(
         StorageDirectory::default(),
         get_app_name(),
         "store-and-retrieve",
