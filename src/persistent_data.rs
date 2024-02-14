@@ -1,22 +1,10 @@
+use crate::get_file_path;
 use crate::StorageDirectory;
 use std::{
     fs,
     io::{self, BufReader, BufWriter},
     path::PathBuf,
 };
-
-fn get_file_path(
-    storage_directory: StorageDirectory,
-    application_name: &str,
-    data_name: &str,
-) -> PathBuf {
-    let mut path = storage_directory.get_path();
-    path.push(application_name);
-    path.push(data_name);
-    path.set_extension("json");
-
-    path
-}
 
 pub struct PersistentData {
     file_path: PathBuf,
